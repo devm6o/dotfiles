@@ -1,0 +1,176 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mode": "dock",
+    "height": 36,
+    "margin-right": 5,
+    "margin-left": 5,
+    "modules-left": [
+        "custom/rofi",
+        "wlr/taskbar",
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "battery",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "backlight",
+        "cpu",
+        "memory",
+        "disk",
+        "temperature",
+        "network",
+        "custom/lock_screen",
+        "custom/power"
+    ],
+    "sway/workspaces": {
+        "all-outputs": true
+    },
+    "custom/rofi": {
+        "format": "",
+        "on-click": "rofi -show combi -combi-modes cmd#drun#run -modes combi",
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "swaynag -t warning -m 'Power' -B 'Shutdown' 'systemctl poweroff' -B 'Reboot' 'systemctl reboot' -B 'Logout' 'swaymsg exit'",
+        "tooltip": false
+    },
+    "custom/lock_screen": {
+        "format": "",
+        "on-click": "sleep 0.5; swaylock -f",
+        "tooltip": false
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 12,
+        "all-outputs": true,
+        "tooltip-format": "{name}: {title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "rofi"
+        ]
+    },
+    "tray": {
+        "icon-size": 12,
+        "spacing": 10
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "",
+        "format-alt-click": "click-right",
+        "format-alt": " {usage}%"
+    },
+    "memory": {
+        "interval": 30,
+        "format": "",
+        "format-alt-click": "click-right",
+        "format-alt": " {}%",
+        "tooltip-format": "Memory - {used:0.1f}GB used out of {total:0.1f}GB"
+    },
+    "disk": {
+        "interval": 600,
+        "format": "󰋊",
+        "path": "/home",
+        "format-alt-click": "click-right",
+        "format-alt": "󰋊 {percentage_used}%",
+        "tooltip-format": "Disk - {used} used out of {total} on {path} ({percentage_used}%)",
+        "states": {
+            "warning": 85,
+            "critical": 90
+        }
+    },
+    "temperature": {
+        "format": "",
+        "format-alt-click": "click-right",
+        "format-alt": " {temperatureC}°C",
+        "critical-threshold": 70,
+        "format-critical": " {temperatureC}°C"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt-click": "click-right",
+        "format-alt": "{icon} {capacity}%",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "tooltip-format": "{icon} at {volume}%"
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%-",
+        "tooltip-format": " at {volume}%"
+    },
+    "backlight": {
+        "format": "{icon}",
+        "format-alt-click": "click-right",
+        "format-alt": "{icon} {percent}%",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ]
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": " ",
+        "format-ethernet": " ",
+        "format-disconnected": " ",
+        "tooltip-format": " {ifname} via {gwaddr}",
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    "clock": {
+        "timezone": "Asia/Tokyo",
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%A, %B %e %Y}"
+    }
+}

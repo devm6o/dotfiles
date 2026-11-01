@@ -1,0 +1,8 @@
+[core]
+    editor = nvim
+[user]
+    name = "Mason Arai"
+    email = "dev@m6o.net" 
+    signingkey = "dev@m6o.net"
+[commit]
+    gpgsign = true

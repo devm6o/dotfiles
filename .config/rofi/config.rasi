@@ -1,0 +1,9 @@
+configuration {
+
+	modi: "cmd,drun,run";
+	show-icons: true;
+	icon-theme: "Papirus";
+	sidebar-mode: true;
+}
+
+@theme "theme/dracula-dark.rasi"

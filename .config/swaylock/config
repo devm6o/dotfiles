@@ -1,0 +1,5 @@
+image=$HOME/.config/wallpapers/infinity-purple.jpg
+scaling=fill
+ignore-empty-password
+show-failed-attempts
+show-keyboard-layout
