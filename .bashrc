@@ -4,7 +4,8 @@ case ":$PATH:" in
     *":$HOME/.local/bin:"*) ;;
     *) PATH="$HOME/.local/bin:$HOME/bin:$PATH" ;;
 esac
-[ -d /usr/local/go/bin ] && PATH="$PATH:/usr/local/go/bin"
+[ -d /usr/local/go/bin ] && PATH="$PATH:/usr/local/go/bin" &&  [ -n "$(go env GOPATH)" ] && PATH="$PATH:$(go env GOPATH)/bin"
+
 export PATH
 
 for rc in ~/.bashrc.d/*; do [ -f "$rc" ] && . "$rc"; done
